@@ -12,8 +12,6 @@
 class Solution {
 public:
     bool isSymmetric(TreeNode* root) {
-        if(!root)
-            return true;
         return areMirror(root->left,root->right);
     }
     bool areMirror(TreeNode* t1,TreeNode* t2){
