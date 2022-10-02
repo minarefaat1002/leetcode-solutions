@@ -15,8 +15,7 @@
  */
 class Solution {
     public boolean isSymmetric(TreeNode root) {
-        if(root==null)
-            return true;
+
         return areMirror(root.left,root.right);
     }
     public boolean areMirror(TreeNode t1,TreeNode t2){
