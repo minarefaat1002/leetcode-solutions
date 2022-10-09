@@ -3,9 +3,10 @@ class Solution:
         longestTime = logs[0][1]
         idOfTheEmployee = logs[0][0]
         for i in range(1,len(logs)):
-            if logs[i][1] - logs[i-1][1] > longestTime:
-                longestTime = logs[i][1]-logs[i-1][1]
+            timeTaken = logs[i][1]-logs[i-1][1]
+            if timeTaken > longestTime:
+                longestTime = timeTaken
                 idOfTheEmployee = logs[i][0]
-            elif logs[i][1]-logs[i-1][1]==longestTime:
+            elif timeTaken == longestTime:
                 idOfTheEmployee = min(logs[i][0],idOfTheEmployee)
         return idOfTheEmployee
