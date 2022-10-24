@@ -26,6 +26,6 @@ class Solution:
             fast=fast.next.next
         if fast.next == None:
             slow.next = slow.next.next        
-        else:
+        elif fast.next.next == None:
             slow.next.next = slow.next.next.next
         return dummy.next
