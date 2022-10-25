@@ -15,7 +15,7 @@ class Solution:
             for digit in i:
                 reverse = digit + reverse
             return int(reverse)
-        for i in range(num+1):
+        for i in range(num//2,num+1):
             Sum=i+reverse(str(i))
             if Sum==num:
                 return True
