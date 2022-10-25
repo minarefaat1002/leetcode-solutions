@@ -21,3 +21,4 @@ class Solution:
             if hashmap[char] == 0:
                 del hashmap[char]
         return True
+        # time complexity : O(n) on average 
