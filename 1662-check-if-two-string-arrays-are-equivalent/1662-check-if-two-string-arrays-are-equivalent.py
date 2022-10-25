@@ -7,11 +7,12 @@ class Solution:
         # for word in word2:
         #     Str2+=word
         # return Str1==Str2
-        i=0
+        # the above solution has a time complexity equal to O(S) ===> where S is the number of chars in the min array
+        # space complexity is O(S)
+        i = 0
         j = 0
         x = 0
         y = 0
-        maxLen = max(len(word1),len(word2))
         while i<len(word1) or j<len(word2):
             if i < len(word1):
                 word11 = word1[i]
@@ -29,5 +30,6 @@ class Solution:
             if y==len(word22):
                 y=0
                 j+=1
-            
         return True
+    # time cmplexity is O(S)
+    # space complexity is O(1)
