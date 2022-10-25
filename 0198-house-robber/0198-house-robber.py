@@ -8,12 +8,17 @@ class Solution:
         #     return max(nums[i]+dfs(i+2),dfs(i+1))
         # return dfs(0)
         # the above solution has time complexity O(2^n) and it's so slow ===> leads to time limit exeeded 
-        hashmap = {len(nums)-1:nums[len(nums)-1] , len(nums)-2:max(nums[len(nums)-2],nums[len(nums)-1])}
-        def dfs(i):
-            if i in hashmap:
-                return hashmap[i]
-            hashmap[i] = max(nums[i]+dfs(i+2),dfs(i+1))
-            return hashmap[i]
-        return dfs(0)
-        # the above solution has time complexity of O(n) and the space complexity is O(n)
-        
+        # hashmap = {len(nums)-1:nums[len(nums)-1] , len(nums)-2:max(nums[len(nums)-2],nums[len(nums)-1])}
+        # def dfs(i):
+        #     if i in hashmap:
+        #         return hashmap[i]
+        #     hashmap[i] = max(nums[i]+dfs(i+2),dfs(i+1))
+        #     return hashmap[i]
+        # return dfs(0)
+        # # the above solution has time complexity of O(n) and the space complexity is O(n)
+        rob1 , rob2 = 0 , 0
+        for num in nums:
+            temp = max(rob2,rob1+num)
+            rob1 = rob2
+            rob2 = temp 
+        return rob2
