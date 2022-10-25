@@ -17,3 +17,4 @@ class Solution:
                 r-=1
             else:
                 l+=1
+        # the above solution has time complexity O(n) --->cause we make a single iteration
