@@ -15,3 +15,5 @@ class Solution:
             hashmap[i] = max(nums[i]+dfs(i+2),dfs(i+1))
             return hashmap[i]
         return dfs(0)
+        # the above solution has time complexity of O(n) and the space complexity is O(n)
+        
