@@ -6,7 +6,7 @@ class Solution:
         #         reverse = reverse*10 + i%10
         #         i = i//10
         #     return reverse
-        # for i in range(num+1):
+        # for i in range(num//2,num+1):
         #     Sum=i+reverse(i)
         #     if Sum==num:
         #         return True
