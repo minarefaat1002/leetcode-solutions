@@ -9,7 +9,7 @@ class Solution:
         l = 0
         r = len(numbers)-1
         Sum = numbers[l]+numbers[r]
-        while l<r:
+        while l<=r:
             Sum = numbers[l]+numbers[r]
             if Sum ==target:
                 return [l+1,r+1]
