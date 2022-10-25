@@ -8,7 +8,6 @@ class Solution:
                 dfs(sr-1,sc,newColor)
                 dfs(sr,sc-1,newColor)
         originalColor = image[sr][sc]
-        if image[sr][sc] == newColor:
-            return image
-        dfs(sr,sc,newColor)
+        if image[sr][sc]!=newColor:
+            dfs(sr,sc,newColor)
         return image
