@@ -12,6 +12,7 @@ class Solution:
         # if newS and newS[0] =="-":
         #     return newS[1:]
         # return newS
+        
         stack = []
         count = 0
         for i in range(len(s)-1,-1,-1):
