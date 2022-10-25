@@ -1,5 +1,13 @@
 class Solution:
     def maxSubArray(self, nums: List[int]) -> int:
+        # maxSum = float('-inf')
+        # for i in range(len(nums)):
+        #     Sum = 0
+        #     for j in range(i,len(nums)):
+        #         Sum+=nums[j]
+        #         maxSum = max(maxSum,Sum)
+        # return maxSum
+        # The above solution will lead to time limited exeeded cause the time complexity is O(n^2) where n is the length of the array
         maxSum = float('-inf')
         curSum = 0
         for num in nums:
