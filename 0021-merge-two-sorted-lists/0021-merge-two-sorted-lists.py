@@ -15,12 +15,9 @@ class Solution:
                 temp.next = l2
                 l2 = l2.next
             temp = temp.next
-        while l1:
+        if l1:
             temp.next = l1
-            temp = temp.next
-            l1 = l1.next
-        while l2:
+        if l2:
             temp.next = l2
-            temp = temp.next
-            l2 = l2.next
         return dymmy.next
+    
