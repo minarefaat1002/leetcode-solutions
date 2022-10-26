@@ -20,3 +20,4 @@ class Solution:
             else:
                 hashmap[prefixSum%k] = i
         return False
+    # the above solution has time complexity of average O(n)
