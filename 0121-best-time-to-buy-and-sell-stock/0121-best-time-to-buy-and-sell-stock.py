@@ -12,4 +12,6 @@ class Solution:
         for price in prices:
             minPrice = min(minPrice,price)
             maxProfit = max(maxProfit,price-minPrice)
+        # the above solution has time complexity of O(n)
         return maxProfit
+  
