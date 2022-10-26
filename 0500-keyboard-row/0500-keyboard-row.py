@@ -20,4 +20,5 @@ class Solution:
             if existsInFirst or existsInSecond or existsInThird:
                 res.append(word)
         return res
-                
+        # the above solution has time complexity of O(n) where n is the number of characters in all strings in the array .
+        # space compelxity is O(1)
