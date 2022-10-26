@@ -27,3 +27,4 @@ class Solution:
             second = first + second 
             first = temp
         return second
+    # time complexity of this solution is O(n) and the space complexity is constant O(1)
