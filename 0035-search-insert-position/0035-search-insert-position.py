@@ -9,4 +9,4 @@ class Solution:
                 l=mid+1
             else:
                 return mid
-        return l;
+        return l
