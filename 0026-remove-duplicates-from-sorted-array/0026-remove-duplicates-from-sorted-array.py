@@ -6,3 +6,4 @@ class Solution:
                 nums[l]=nums[r]
                 l+=1
         return l
+# time complexity is O(N)
