@@ -10,4 +10,4 @@ class Solution:
             else:
                 return mid
         return l
-    # time complexity is O(n)
+    # time complexity is O(logn)
