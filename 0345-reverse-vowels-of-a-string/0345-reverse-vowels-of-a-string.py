@@ -21,4 +21,4 @@ class Solution:
                 l+=1
                 r-=1
         return "".join(stack)
-            
+            # time complexity if O(N) where N is the length of the string s . and space complexity if O(N)
