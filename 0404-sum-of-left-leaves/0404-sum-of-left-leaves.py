@@ -6,7 +6,6 @@
 #         self.right = right
 class Solution:
     def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
-        Sum = [0]
         if not root:
             return 0 
         if not root.left and not root.right:
@@ -14,14 +13,11 @@ class Solution:
         Sum =[0]
         def dfs(root,isLeft):
             if not root:
-                return
+                return 0
             if not root.left and not root.right:
                 if isLeft:
-                    Sum[0]+=root.val
-                    return
+                    return root.val
                 else:
-                    return
-            dfs(root.left,True)
-            dfs(root.right,False)
-        dfs(root,False)
-        return Sum[0]
+                    return 0
+            return dfs(root.left,True) + dfs(root.right,False)
+        return dfs(root,False)
