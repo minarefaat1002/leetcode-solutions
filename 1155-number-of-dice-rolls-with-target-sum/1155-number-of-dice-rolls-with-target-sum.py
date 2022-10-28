@@ -28,3 +28,4 @@ class Solution:
             hashMap[(target,n)] = Sum
             return hashMap[(target,n)]
         return dp(target,n,k) %Mod
+# the above solution has time complexity of O(target*n) and space complexity of O(target*n)
