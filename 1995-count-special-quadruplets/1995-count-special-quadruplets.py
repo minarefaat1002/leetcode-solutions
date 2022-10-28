@@ -16,9 +16,9 @@ class Solution:
         
         for i in range(len(nums) - 3, 0, -1):
             for j in range(i - 1, -1, -1):
-                res = res + count.get(nums[j] + nums[i],0)
-            
+                res = res + count.get(nums[j] + nums[i],0)  
             for x in range(len(nums) - 1, i, -1):
                 count[nums[x] - nums[i]] =count.get(nums[x] - nums[i],0) + 1
         
         return res
+    
