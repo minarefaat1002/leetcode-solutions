@@ -17,6 +17,7 @@ class Solution:
                     return True
             visited[crs]=2
         for crs in range(numCourses):
-            if dfs(crs): return False
+            if visited[crs]==0:
+                if dfs(crs): return False
         return True 
     
