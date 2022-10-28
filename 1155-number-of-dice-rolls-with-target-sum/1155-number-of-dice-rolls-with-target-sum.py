@@ -14,6 +14,7 @@ class Solution:
 # the above solution is so slow and has time limit exeeded .  to improve it we use caching 
         hashMap = {(0,0):1}
         count=[0]
+        Mod = 10**9 + 7
         def dp(target,n,k):
             if (target,n) in hashMap:
                 return hashMap[(target,n)]
@@ -23,7 +24,7 @@ class Solution:
                 return 0
             Sum = 0
             for i in range(1,k+1):
-                Sum +=dp(target-i,n-1,k)
+                Sum = (Sum + dp(target-i,n-1,k))%Mod
             hashMap[(target,n)] = Sum
             return hashMap[(target,n)]
-        return dp(target,n,k) %(10**9+7)
+        return dp(target,n,k) %Mod
