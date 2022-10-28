@@ -24,7 +24,7 @@ class Solution:
                 return 0
             Sum = 0
             for i in range(1,k+1):
-                Sum = (Sum + dp(target-i,n-1,k))%Mod
+                Sum = Sum + (dp(target-i,n-1,k))%Mod
             hashMap[(target,n)] = Sum
             return hashMap[(target,n)]
         return dp(target,n,k) %Mod
