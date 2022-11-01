@@ -1,12 +1,14 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        if len(s) != len(t):
+        if len(s)!=len(t):
             return False
-        hashMap1 = {}
-        hashMap2 = {}
-        for i in range(len(s)):
-            if (s[i] in hashMap1 and hashMap1[s[i]] != t[i]) or (t[i] in hashMap2 and hashMap2[t[i]]!=s[i]):
+        mapST = {}
+        mapTS = {}
+        for i in range(len(s)): # for c1,c2 in zip(s,t): # to iterate through two string sameltinously
+            c1 = s[i] 
+            c2 = t[i]
+            if ((c1 in mapST and mapST[c1] != c2) or (c2 in mapTS and mapTS[c2] !=c1)):
                 return False
-            hashMap1[s[i]] = t[i]
-            hashMap2[t[i]] = s[i]
-        return True
+            mapST[c1] = c2
+            mapTS[c2] = c1
+        return True 
