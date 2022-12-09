@@ -1,1 +1,78 @@
+# class TrieNode:
+#     def __init__(self, char):
+#         self.char = char
+#         self.is_end = False
+#         self.children = {}
+# class Trie(object):
+#     def __init__(self):
+#         self.root = TrieNode("")
+#     def insert(self, word):
+#         exists = True
+#         node = self.root
+#         for char in word:
+#             if char in node.children:
+#                 node = node.children[char]
+#             else:
+#                 new_node = TrieNode(char)
+#                 node.children[char] = new_node
+#                 node = new_node
+#                 exists = False
+#         node.is_end = True
+#         return exists
+# class Solution:
+#     def checkDuplicate(self,mid,s):
+#         trie = Trie()
+#         for i in range(len(s)-mid+1):
+#             if trie.insert(s[i:i+mid]):
+#                 return s[i:i+mid]
+#         return ""
+#     def longestDupSubstring(self, s: str) -> str:
+#         low = 1 
+#         high = len(s)
+#         cur = ""
+#         res = ""
+#         while low <= high:
+#             mid = int((low+high)/2)
+#             cur = self.checkDuplicate(mid,s)
+#             if cur:
+#                 low = mid+1
+#                 res = cur
+#             else:
+#                 high = mid-1
+#         return res
+class Solution:
+    def longestDupSubstring(self, s: str) -> str:
+        def helper(L):
+            seen = set()
+            curHash = 0
+            curHash2 = 0
+            for i in range(L):
+                curHash = (curHash*26 + nums[i])%MOD
+                curHash2 = (curHash2*26 + nums[i]) % MOD2
+            seen.add((curHash,curHash2))
+            a = pow(26,L,MOD)
+            a2 = pow(26,L,MOD2)
+            for i in range(L,n):
+                curHash = (curHash*26 + nums[i] - nums[i-L]*a) % MOD
+                curHash2 = (curHash2 * 26 + nums[i] - nums[i-L]*a2)%MOD2
+                if (curHash,curHash2) in seen:
+                    return i-mid+1
+                seen.add((curHash,curHash2))
+            return -1
 
+        MOD = 10**9 + 7
+        MOD2 = 10**9 + 3
+        low = 1
+        n = len(s)
+        high = len(s)
+        nums = [ord(c)-ord('a') for c in s]
+        res = 0
+        while low <= high:
+            mid = (low+high)//2
+            start = helper(mid)
+            if start >= 0:
+                low = mid+1
+                res = start
+            else:
+                high = mid-1
+        return s[res:res+low-1]
