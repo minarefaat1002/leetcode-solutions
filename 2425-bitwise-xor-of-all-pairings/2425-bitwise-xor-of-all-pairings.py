@@ -4,7 +4,6 @@ class Solution:
         # if odd then num
         len1 = len(nums1)
         len2 = len(nums2)
-        Sum = 0
         xor = 0
         if len2%2 != 0:
             for num in nums1:
