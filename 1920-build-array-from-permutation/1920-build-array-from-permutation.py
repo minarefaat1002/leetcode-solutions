@@ -6,7 +6,7 @@ class Solution:
         # return ans
         Max = max(nums)+1
         for i in range(len(nums)):
-            nums[i] = ((nums[nums[i]%Max])%Max)*Max + nums[i]
+            nums[i] = (nums[nums[i]]%Max)*Max + nums[i]
         for i in range(len(nums)):
             nums[i] = int(nums[i]/Max)
         return nums
