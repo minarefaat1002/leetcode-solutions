@@ -10,7 +10,7 @@ class Solution:
         j = 0
         while j<len(nums):
             if curSum == diff:
-                maxLen = max(maxLen,j-i+1)
+                maxLen = max(maxLen,j-i)
                 curSum-=nums[i]
                 i+=1
             elif curSum < diff:
@@ -24,5 +24,5 @@ class Solution:
             curSum -= nums[i]
             i+=1
         if curSum == diff:
-            maxLen = max(maxLen,j-i+1)
-        return len(nums)-maxLen+1 if maxLen != -1 else -1
+            maxLen = max(maxLen,j-i)
+        return len(nums)-maxLen if maxLen != -1 else -1
