@@ -1,8 +1,3 @@
 class Solution:
     def minOperations(self, n: int) -> int:
-        avg = int((n*(1 + 2*(n-1) + 1)/2)/n)
-        operations = 0
-        for i in range(n):
-            if 2*i + 1 < avg:
-                operations+= avg - (2*i + 1)
-        return operations
+        return int(int(n/2)*(1+2*(int(n/2)-1) + 1 )/2) if n%2 == 0 else int(int(n/2)*(2+2*int(n/2))/2)
