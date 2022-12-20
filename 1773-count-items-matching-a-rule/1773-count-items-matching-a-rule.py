@@ -1,11 +1,8 @@
 class Solution:
     def countMatches(self, items: List[List[str]], ruleKey: str, ruleValue: str) -> int:
         count = 0 
+        hashMap = {"type":0,"color":1,"name":2}
         for item in items:
-            if ruleKey == "type" and item[0] == ruleValue:
-                count+=1
-            if ruleKey == "color" and item[1] == ruleValue:
-                count+=1
-            if ruleKey == "name" and item[2] == ruleValue:
-                count +=1
+            index = hashMap[ruleKey]
+            count += 1 if item[index] == ruleValue else 0
         return count 
