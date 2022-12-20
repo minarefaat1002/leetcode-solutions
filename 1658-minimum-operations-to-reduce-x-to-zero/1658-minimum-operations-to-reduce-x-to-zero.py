@@ -26,4 +26,3 @@ class Solution:
         if curSum == diff:
             maxLen = max(maxLen,j-i+1)
         return len(nums)-maxLen +1 if maxLen != -1 else -1
-            
