@@ -10,7 +10,4 @@ class Solution:
                 if key not in seen:
                     seen.add(key)
                     q.append(key)
-        if len(seen) == len(rooms):
-            return True
-        return False
-        
+        return len(seen) == len(rooms)
