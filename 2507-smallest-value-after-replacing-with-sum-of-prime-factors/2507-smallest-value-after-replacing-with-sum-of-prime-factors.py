@@ -1,23 +1,16 @@
 class Solution:
     def smallestValue(self, n: int) -> int:
-        def notPrime(n):
-            for i in range(2,int(sqrt(n)+1)):
-                if n%i == 0:
-                    return True
-            return False
         def primeFactors(n):
             Sum = 0
-            i = 2
-            while n != 1:
+            for i in range(2,int(sqrt(n))+1):
                 while n % i == 0:
                     Sum += i
                     n = int(n/i)
-                i+=1
+            Sum += n if n != 1 else 0
             return Sum
-        while notPrime(n):
+        while True:
             nn = primeFactors(n)
             if n == nn:
-                break
+                return n
             n = nn
-        return n
         
