@@ -9,8 +9,8 @@ class Solution:
             Sum += n if n != 1 else 0
             return Sum
         while True:
-            nn = primeFactors(n)
-            if n == nn:
+            sumOfFactors = primeFactors(n)
+            if n == sumOfFactors:
                 return n
-            n = nn
+            n = sumOfFactors
         
