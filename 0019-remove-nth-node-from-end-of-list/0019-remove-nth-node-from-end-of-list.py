@@ -15,4 +15,6 @@ class Solution:
         dummy = ListNode(0,head)
         dfs(dummy)
         return dummy.next
-            
+'''
+another solution by we can use two pointers and keep the distance between them as n.
+'''
