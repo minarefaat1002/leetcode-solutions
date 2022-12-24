@@ -20,7 +20,7 @@ class Solution:
                 denominator *= self.factorial(f)
             anagramsOfCurrentWord = anagramsOfCurrentWord//denominator
             anagrams = anagrams*anagramsOfCurrentWord
-        return int(anagrams)%MOD
+        return anagrams%MOD
             
             
             
