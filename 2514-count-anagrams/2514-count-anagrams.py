@@ -14,11 +14,11 @@ class Solution:
             for char in word:
                 freq[ord(char)-ord('a')] += 1
                 letters += 1
-            anagramsOfCurrentWord = self.factorial(letters)
+            numerator = self.factorial(letters)
             denominator = 1
             for f in freq:
                 denominator *= self.factorial(f)
-            anagramsOfCurrentWord = anagramsOfCurrentWord//denominator
+            anagramsOfCurrentWord = numerator//denominator
             anagrams = anagrams*anagramsOfCurrentWord
         return int(anagrams)%MOD
             
