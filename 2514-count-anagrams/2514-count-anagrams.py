@@ -1,4 +1,7 @@
 class Solution:
+    '''
+    number of anagrams of a word = fact(len(word))/(fact of count of each char in the word multiplied together)
+    '''
     def factorial(self,num):
         MOD = 10**9 + 7
         if num <=1:
