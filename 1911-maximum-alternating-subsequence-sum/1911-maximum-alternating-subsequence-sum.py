@@ -1,14 +1,5 @@
 class Solution:
     def maxAlternatingSum(self, nums: List[int]) -> int:
-        sumeven, sumodd = 0 ,0
-        for i in range(len(nums)-1,-1,-1):
-            tmpeven = max(sumodd+nums[i],sumeven)
-            tmpodd =  max(sumeven-nums[i],sumodd)
-            sumeven ,sumodd = tmpeven , tmpodd
-        return sumeven
-    
-    
-    
         dp = {}
         def dfs(i,even):
             if i == len(nums):
