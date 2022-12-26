@@ -11,4 +11,4 @@ class Solution:
             if num > Max:
                 Max = num
                 pivotMax = i
-        return min(max(pivotMin,pivotMax)+1 , len(nums) - min(pivotMin,pivotMax),min(pivotMin,pivotMax)+1 + len(nums)-max(pivotMin,pivotMax))
+        return min(max(pivotMin,pivotMax)+1 , len(nums) - min(pivotMin,pivotMax),1 + len(nums)-abs(pivotMin-pivotMax))
