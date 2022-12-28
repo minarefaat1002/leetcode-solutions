@@ -7,16 +7,14 @@ class Solution:
         for num in nums:
             count[num] += 1
         for i in range(1,len(count)):
+            temp = prev
             if count[i] == 0:
                 continue
             elif count[i-1] > 0:
-                temp = prev
                 prev = max(count[i]*i + prevprev,prev)
-                prevprev = temp
             else:
-                temp = prev
                 prev = max(count[i]*i + prev,prev)
-                prevprev = temp
+            prevprev = temp
         return prev
                 
                 
