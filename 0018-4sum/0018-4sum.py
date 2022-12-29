@@ -27,9 +27,7 @@ class Solution:
                 r = len(nums)-1
                 while l < r:
                     if nums[l] + nums[r] == target - nums[i] - nums[j]:
-                        comb = [nums[l],nums[r],nums[i],nums[j]]
-                        comb.sort()
-                        res.add(tuple(comb))
+                        res.add((nums[i],nums[j],nums[l],nums[r]))
                         l+=1
                         r-=1
                     elif nums[l] + nums[r] > target - nums[i] - nums[j]:
