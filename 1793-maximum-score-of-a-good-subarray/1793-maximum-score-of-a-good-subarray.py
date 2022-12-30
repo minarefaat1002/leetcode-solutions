@@ -8,7 +8,7 @@ class Solution:
             while stack and nums[i] < nums[stack[-1]]:
                 h = nums[stack.pop()]
                 w = i - stack[-1] -1
-                if k+1 <= i-1 and k+1 >= stack[-1]+1:
+                if k <= i-2 and k >= stack[-1]:
                     ans = max(ans, h * w)
             stack.append(i)
         nums.pop()
