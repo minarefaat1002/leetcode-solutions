@@ -5,8 +5,8 @@ class Solution:
                 return 
             mid = len(arr)//2
             arr1 = arr[:mid]
-            arr2 = arr[mid:]
             mergeSort(arr1)
+            arr2 = arr[mid:]
             mergeSort(arr2)
             i = 0
             k = 0
