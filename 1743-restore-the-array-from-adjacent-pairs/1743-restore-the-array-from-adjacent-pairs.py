@@ -16,7 +16,7 @@ class Solution:
         res.append(hashMap[first][0])
         cur = hashMap[first][0]
         del hashMap[first]
-        while len(res) != len(adjacentPairs):
+        while len(res) != len(adjacentPairs)+1:
             if hashMap[cur][0] == res[-2]:
                 res.append(hashMap[cur][1])
                 temp = cur
@@ -27,8 +27,4 @@ class Solution:
                 temp = cur
                 cur = hashMap[cur][0]
                 del hashMap[temp]
-        if hashMap[cur][0] == res[-2]:
-            res.append(hashMap[cur][1])
-        else:
-            res.append(hashMap[cur][0])
         return res
