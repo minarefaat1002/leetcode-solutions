@@ -1,7 +1,7 @@
 class Solution:
     def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
         res = [[1000000+1]]*len(people)
-        people = sorted(people)
+        people.sort()
         for i,person in enumerate(people):
             count = person[1]
             j = 0
