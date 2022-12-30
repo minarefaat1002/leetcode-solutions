@@ -10,7 +10,7 @@ class Solution:
         arr = []
         for l in lists:
             if l:
-                heapq.heappush(arr,(l.val,counter, l))
+                heapq.heappush(arr,(l.val,counter, l)) # we use counter because if there's a tie between two nodes values then the heapq will compare between them based on the second parameter which is the node pointer . and to solve this poroblem we insert conter with each insertion to make in unique .
                 counter+=1
         while arr:
             val,counter, node = heapq.heappop(arr)
