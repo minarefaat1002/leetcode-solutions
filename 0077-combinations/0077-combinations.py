@@ -5,8 +5,6 @@ class Solution:
             if len(temp) == k:
                 res.append(temp.copy())
                 return 
-            if start > n:
-                return
             for i in range(start,n+1):
                 temp.append(i)
                 dfs(temp,i+1)
