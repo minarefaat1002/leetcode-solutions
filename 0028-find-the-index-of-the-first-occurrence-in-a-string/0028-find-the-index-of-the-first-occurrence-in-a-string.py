@@ -6,8 +6,8 @@ class Solution:
                     return False
             return True
         for i in range(0,len(haystack)-len(needle)+1):
-           if searchNeedle(i,needle):
-               return i
+            if searchNeedle(i,needle):
+                return i
         return -1
         # time complexity of the above solution is O(n*m) where n is number of strings and m is the length of the longest string 
         # if needle == "": return 0
