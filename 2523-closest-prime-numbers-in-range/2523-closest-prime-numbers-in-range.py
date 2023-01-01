@@ -22,6 +22,8 @@ class Solution:
                 if r - l < Min:
                     Min = r - l
                     res = [l,r]
+                    if Min == 1:
+                        return res
                 l = r
             elif seive[l]:
                 r+=1
