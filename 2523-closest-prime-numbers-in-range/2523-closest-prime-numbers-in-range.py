@@ -10,11 +10,9 @@ class Solution:
             if not seive[i]:
                 continue
             j = i*2
-            inc = 3
             while j < len(seive):
                 seive[j] = False
-                j=i*inc
-                inc+=1
+                j=j + i
         l = left
         r = left
         Min = float('inf')
