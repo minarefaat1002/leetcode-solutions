@@ -3,7 +3,7 @@ class Solution:
         prime = True
         Set = set()
         for num in nums:
-            for i in range(2,int(sqrt(num))+2):
+            for i in range(2,int(sqrt(num))+1):
                 while num%i == 0:
                     Set.add(i)
                     num = num//i
