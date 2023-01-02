@@ -12,8 +12,8 @@ class NumArray:
         return num & (-num)
     
     def update(self, index: int, val: int) -> None:
+        val = val - self.sumRange(index,index)
         i = index+1
-        val = val - self.sumRange(i-1,i-1)
         while i <= self.N:
             self.tree[i] = self.tree[i] + val
             i = i + self.LSB(i)
