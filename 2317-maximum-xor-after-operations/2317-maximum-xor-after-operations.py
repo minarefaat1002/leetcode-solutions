@@ -4,12 +4,8 @@ class Solution:
         # a.(a xor b)
         # a.(a.b' + a'b)
         # a.a.b' + a.a'.b
-        # a.b' will result less or equal number 
+        # a.b' will result less or equal number always
         # nums[i] AND x'
-        # 010
-        # 011
-        # 100
-        # 110
         # 0001
         # 0010
         # 0010
