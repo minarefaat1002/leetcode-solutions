@@ -8,10 +8,7 @@ class Solution:
             count = 0
             for i in range(m):
                 count += min(mid//(i+1),n)
-            if count == k:
-                res = mid
-                r = mid - 1
-            elif count < k:
+            if count < k:
                 l = mid + 1
             else:
                 r = mid - 1
