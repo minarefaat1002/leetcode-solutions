@@ -15,7 +15,7 @@ class Solution:
             z = 0
             while k < len(arr1) and z < len(arr2):
                 if arr1[k][0] > arr2[z][0]:
-                    counts[arr1[k][1]] += len(arr2)-z
+                    counts[arr1[k][1]] += len(arr2) - z
                     arr[i] = arr1[k]
                     k+=1
                     i+=1
