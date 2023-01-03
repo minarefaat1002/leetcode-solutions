@@ -7,9 +7,8 @@ class Solution:
                 res.append(temp.copy())
             if i == len(nums):
                 return
-            prev = 434
             for j in range(i,len(nums)):
-                if nums[j] == prev:
+                if j!=i and nums[j] == prev:
                     continue
                 temp.append(nums[j])
                 dfs(temp,j+1)
