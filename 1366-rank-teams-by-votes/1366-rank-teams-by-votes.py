@@ -19,5 +19,5 @@ class Solution:
                     d[char] = [0] * len(vote)
                 d[char][i] += 1
 
-        voted_names = sorted(d.keys())
+        voted_names = sorted(d.keys()) # sorting by key
         return "".join(sorted(voted_names, key=lambda x: d[x], reverse=True))
