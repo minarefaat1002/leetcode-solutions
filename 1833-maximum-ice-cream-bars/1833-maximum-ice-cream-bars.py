@@ -6,6 +6,5 @@ class Solution:
             coins -= cost
             if coins < 0:
                 return count 
-            count +=1
-            
+            count +=1      
         return count 
