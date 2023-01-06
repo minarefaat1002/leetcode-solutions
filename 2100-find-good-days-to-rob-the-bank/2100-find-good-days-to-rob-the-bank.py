@@ -1,6 +1,5 @@
 class Solution:
     def goodDaysToRobBank(self, security: List[int], time: int) -> List[int]:
-
         dp1 = [1]*len(security)
         dp2 = [1]*len(security)
         res = []
