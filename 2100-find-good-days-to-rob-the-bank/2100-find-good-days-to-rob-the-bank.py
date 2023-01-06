@@ -10,7 +10,7 @@ class Solution:
         for i in range(len(security)-2,-1,-1):
             dp2[i] += dp2[i+1] if security[i] <= security[i+1] else 0
         for i in range(time,len(security)-time):
-            if security[i] <= security[i-1] and security[i] <=security[i+1] and dp1[i-1] >= time and dp2[i+1] >= time:
+            if  dp1[i] >= time + 1 and dp2[i] >= time+1:
                 res.append(i)
         return res
     
