@@ -5,7 +5,7 @@ class Solution:
         digit = False
         specialChar = False
         for i in range(len(password)):
-            prevChar = password[i-1] if i > 0 else ""
+            prevChar = password[i-1]
             char = password[i]
             if ord(char)-ord('a') <=25 and ord(char)-ord('a') >=0:
                 lowerCase = True
