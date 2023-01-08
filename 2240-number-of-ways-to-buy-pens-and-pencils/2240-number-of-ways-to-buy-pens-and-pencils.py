@@ -10,4 +10,3 @@ class Solution:
             pencilsCost = pencils*cost2
             ways += pencils + 1
             pens+=1
-        return ways
