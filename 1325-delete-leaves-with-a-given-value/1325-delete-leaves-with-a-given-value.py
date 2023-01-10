@@ -16,7 +16,6 @@ class Solution:
             if root.val == target and not root.left and not root.right:
                 return True
             return False
-        dfs(root)
-        if root.val == target and not root.left and not root.right:
+        if dfs(root):
             return None
         return root
