@@ -1,7 +1,9 @@
 class Solution:
     def equalPairs(self, grid: List[List[int]]) -> int:
-        count = Counter(tuple(row) for row in grid)
+        count = {}
         res = 0
+        for row in grid:
+            count[tuple(row)] = count.get(tuple(row),0) + 1
         for j in range(len(grid[0])):
             col = []
             for i in range(len(grid)):
