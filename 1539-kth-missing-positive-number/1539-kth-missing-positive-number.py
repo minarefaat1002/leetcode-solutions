@@ -3,7 +3,7 @@ class Solution:
         if k < arr[0]:
             return k
         if k > arr[-1] - len(arr):
-            return arr[-1] + k - (arr[-1] - len(arr))
+            return k + len(arr)
         l = 0
         r = len(arr) - 1
         res = -1
