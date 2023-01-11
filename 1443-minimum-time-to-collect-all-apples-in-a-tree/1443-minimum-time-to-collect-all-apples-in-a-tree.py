@@ -17,9 +17,7 @@ class Solution:
                     graph[edge[1]] = []
                 graph[edge[1]].append(edge[0])
                 used[edge[0]] = True
-        visited = [False]*n
         def dfs(vertex):
-            visited[vertex] = True
             if vertex not in graph:
                 if hasApple[vertex]:
                     return True
@@ -31,7 +29,5 @@ class Solution:
                     Sum[0]+=2
                 hasAple = hasAple or df
             return hasAple or hasApple[vertex]
-        for i in range(n):
-            if not visited[i]:
-                dfs(i)
+        dfs(0)
         return Sum[0]
