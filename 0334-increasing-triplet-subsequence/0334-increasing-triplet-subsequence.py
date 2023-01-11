@@ -5,8 +5,8 @@ class Solution:
         for num in nums[1:]:
             if num <= Min1:
                 Min1 = num
-            elif num < Min2:
+            elif num <= Min2:
                 Min2 = num
-            elif num > Min2:
+            else:
                 return True
         return False
