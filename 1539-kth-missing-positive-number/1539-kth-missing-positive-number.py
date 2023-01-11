@@ -7,11 +7,10 @@ class Solution:
         l = 0
         r = len(arr) - 1
         res = -1
-        while l <= r:
+        while l < r:
             mid = (l+r)//2
             if arr[mid] - (mid+1) >= k:
-                res = mid
-                r = mid - 1
+                r = mid 
             else:
                 l = mid + 1
-        return k-(arr[res-1] - (res)) + arr[res-1]
+        return k-(arr[l-1] - (l)) + arr[l-1]
