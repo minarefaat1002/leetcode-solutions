@@ -1,8 +1,8 @@
 class Solution:
     def increasingTriplet(self, nums: List[int]) -> bool:
-        Min1 = nums[0]
+        Min1 = float('inf')
         Min2 = float('inf')
-        for num in nums[1:]:
+        for num in nums:
             if num <= Min1:
                 Min1 = num
             elif num <= Min2:
