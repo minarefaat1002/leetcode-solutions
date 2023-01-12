@@ -19,7 +19,7 @@ class Solution:
             else:
                 new.next = cur
                 new = new.next
-                cur = cur.next
+                cur = temp
         return dummy.next               
                 
             
