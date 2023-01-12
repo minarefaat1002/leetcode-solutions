@@ -45,10 +45,6 @@ class Solution:
             if visited[vertex]:
                 return False
             visited[vertex] = True
-            if vertex not in graph:
-                if hasApple[vertex]:
-                    return True
-                return False
             hasAple = False
             for child in graph[vertex]:
                 df = dfs(child)
