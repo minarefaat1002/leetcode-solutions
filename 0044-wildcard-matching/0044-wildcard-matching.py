@@ -1,5 +1,6 @@
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
+        # solution with preprocessing to group all adjacent starts to one star
         # newP = ""
         # for i,char in enumerate(p):
         #     if len(newP) !=0 and char =="*" and char == newP[-1]:
