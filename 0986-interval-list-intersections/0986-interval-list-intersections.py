@@ -14,11 +14,6 @@ class Solution:
                 intersection.append([max(a[0],b[0]),min(a[1],b[1])])
             elif b[1] >= a[0] and b[1] <= a[1]:
                 intersection.append([max(a[0],b[0]),min(a[1],b[1])])
-            if a[1] > b[1]:
-                j+=1
-            elif b[1] > a[1]:
-                i+=1
-            else:
-                i+=1
-                j+=1
+            j += 1 if a[1] >= b[1] else 0 
+            i += 1 if b[1] >= a[1] else 0
         return intersection
