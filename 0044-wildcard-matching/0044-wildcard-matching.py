@@ -24,23 +24,41 @@ class Solution:
         #         dp[(i,j)] = res
         #         return dp[(i,j)]
         # return dfs(0,0)
+        # dp = {}
+        # def dfs(i,j):
+        #     if i == len(s) and j==len(p):
+        #         return True
+        #     if j == len(p):
+        #         return False
+        #     if (i,j) in dp:
+        #         return dp[(i,j)]
+        #     if i<len(s) and s[i] == p[j] or p[j] == "?":
+        #         dp[(i,j)] = dfs(i+1,j+1)
+        #         return dp[(i,j)]
+        #     if j<len(p)-1 and p[j] == "*" and p[j+1] == "*":
+        #         return dfs(i,j+1)
+        #     if p[j] == "*":
+        #         res = False
+        #         for z in range(i,len(s)+1):
+        #             res = res or dfs(z,j+1)
+        #         dp[(i,j)] = res
+        #         return dp[(i,j)]
+        # return dfs(0,0)
         dp = {}
         def dfs(i,j):
-            if i == len(s) and j==len(p):
-                return True
-            if j == len(p):
-                return False
             if (i,j) in dp:
                 return dp[(i,j)]
-            if i<len(s) and s[i] == p[j] or p[j] == "?":
+            if i >= len(s) and j>=len(p):
+                return True
+            if i >= len(s):
+                dp[(i,j)] = p[j]=="*" and dfs(i,j+1)
+                return dp[(i,j)]
+            if j >= len(p):
+                return False
+            if i < len(s) and s[i] == p[j] or p[j] == "?":
                 dp[(i,j)] = dfs(i+1,j+1)
                 return dp[(i,j)]
-            if j<len(p)-1 and p[j] == "*" and p[j+1] == "*":
-                return dfs(i,j+1)
             if p[j] == "*":
-                res = False
-                for z in range(i,len(s)+1):
-                    res = res or dfs(z,j+1)
-                dp[(i,j)] = res
+                dp[(i,j)] = dfs(i,j+1) or dfs(i+1,j)
                 return dp[(i,j)]
         return dfs(0,0)
