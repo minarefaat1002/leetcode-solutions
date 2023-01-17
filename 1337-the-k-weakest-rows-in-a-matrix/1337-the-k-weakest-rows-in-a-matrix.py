@@ -7,11 +7,10 @@ class Solution:
             while l <= r:
                 mid = (l+r)//2
                 if row[mid] == 1:
-                    res = mid
                     l = mid + 1
                 elif row[mid] == 0:
                     r = mid - 1
-            return res
+            return r
         heap = []
         res = []
         heapq.heapify(heap)
