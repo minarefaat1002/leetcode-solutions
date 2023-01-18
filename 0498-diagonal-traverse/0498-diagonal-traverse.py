@@ -5,7 +5,7 @@ class Solution:
         i = 0
         j = 0
         d = [-1,1]
-        while i>=0 and j>=0 and i < len(mat) and j < len(mat[0]):
+        while i < len(mat) and j < len(mat[0]):
             while i>=0 and j>=0 and i < len(mat) and j < len(mat[0]):
                 res.append(mat[i][j])
                 i+=d[0]
