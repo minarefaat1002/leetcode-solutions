@@ -12,8 +12,6 @@ class Solution:
                 j+=d[1]
             i-=d[0]
             j-=d[1]
-            if i==len(mat)-1 and j == len(mat[0])-1:
-                return res
             if i == 0 and j!=len(mat[0])-1:
                 j+=1
                 d = [1,-1]
