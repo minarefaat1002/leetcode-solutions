@@ -13,8 +13,7 @@ class Solution:
             if cur not in graph:
                 return False
             for i in range(len(graph[cur])):
-                d = graph[cur][i]
-                graph[cur].pop(i)
+                d = graph[cur].pop(i)
                 res.append(d)
                 if dfs(d):
                     return True
