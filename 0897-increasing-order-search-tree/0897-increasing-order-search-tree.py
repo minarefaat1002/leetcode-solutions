@@ -6,17 +6,28 @@
 #         self.right = right
 class Solution:
     def increasingBST(self, root: TreeNode) -> TreeNode:
-        arr = []
+        # arr = []
+        # def dfs(root):
+        #     if not root:
+        #         return
+        #     dfs(root.left)
+        #     arr.append(root.val)
+        #     dfs(root.right)
+        # dfs(root)
+        # newRoot = TreeNode(0,None,None)
+        # temp = newRoot
+        # for i in range(len(arr)):
+        #     temp.right = TreeNode(arr[i],None,None)
+        #     temp = temp.right
+        # return newRoot.right
         def dfs(root):
             if not root:
-                return
+                return None
             dfs(root.left)
-            arr.append(root.val)
+            root.left = None
+            self.cur.right = root
+            self.cur = self.cur.right
             dfs(root.right)
+        ans = self.cur = TreeNode(0)
         dfs(root)
-        newRoot = TreeNode(0,None,None)
-        temp = newRoot
-        for i in range(len(arr)):
-            temp.right = TreeNode(arr[i],None,None)
-            temp = temp.right
-        return newRoot.right
+        return ans.right
