@@ -26,7 +26,7 @@ class Solution:
             dfs(root.left)
             root.left = None
             self.cur.right = root
-            self.cur = self.cur.right
+            self.cur = root
             dfs(root.right)
         ans = self.cur = TreeNode(0)
         dfs(root)
