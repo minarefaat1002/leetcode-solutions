@@ -10,7 +10,7 @@ class Solution:
         def dfs(cur):
             if len(res) == len(tickets) + 1:
                 return True
-            if cur not in graph or len(cur) == 0:
+            if cur not in graph:
                 return False
             temp = graph[cur].copy()
             for i in range(len(temp)):
