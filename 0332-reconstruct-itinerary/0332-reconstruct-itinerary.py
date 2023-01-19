@@ -12,9 +12,8 @@ class Solution:
                 return True
             if cur not in graph:
                 return False
-            temp = graph[cur].copy()
-            for i in range(len(temp)):
-                d = temp[i]
+            for i in range(len(graph[cur])):
+                d = graph[cur][i]
                 graph[cur].pop(i)
                 res.append(d)
                 if dfs(d):
