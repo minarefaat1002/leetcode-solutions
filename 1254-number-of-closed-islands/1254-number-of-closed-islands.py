@@ -5,9 +5,7 @@ class Solution:
         def dfs(i,j):
             if i < 0 or j < 0 or i == len(grid) or j == len(grid[0]):
                 return False
-            if grid[i][j] == 1:
-                return True
-            if (i,j) in visited:
+            if grid[i][j] == 1 or (i,j) in visited:
                 return True
             visited.add((i,j))
             d1 = dfs(i+1,j) 
