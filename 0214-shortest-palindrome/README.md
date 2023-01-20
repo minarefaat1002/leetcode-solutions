@@ -1,4 +1,4 @@
-<h2><a href="https://leetcode.com/problems/shortest-palindrome/">214. Shortest Palindrome</a></h2><h3>Hard</h3><hr><div><p>You are given a string <code>s</code>. You can convert <code>s</code> to a <span data-keyword="palindrome-string">palindrome</span> by adding characters in front of it.</p>
+<h2><a href="https://leetcode.com/problems/shortest-palindrome/solution/">214. Shortest Palindrome</a></h2><h3>Hard</h3><hr><div><p>You are given a string <code>s</code>. You can convert <code>s</code> to a <span data-keyword="palindrome-string">palindrome</span> by adding characters in front of it.</p>
 
 <p>Return <em>the shortest palindrome you can find by performing this transformation</em>.</p>
 
