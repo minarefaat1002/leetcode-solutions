@@ -8,13 +8,6 @@ class Solution:
         subBoxes = collections.defaultdict(set)
         for i in range(len(board)):
             for j in range(len(board[0])):
-                if board[i][j] != ".":
-                    if i not in rows:
-                        rows[i] = set()
-                    if j not in cols:
-                        cols[j] = set()
-                    if (i//3,j//3) not in subBoxes:
-                        subBoxes[(i//3,j//3)] = set()
                     rows[i].add(board[i][j])
                     cols[j].add(board[i][j])
                     subBoxes[(i//3,j//3)].add(board[i][j])
