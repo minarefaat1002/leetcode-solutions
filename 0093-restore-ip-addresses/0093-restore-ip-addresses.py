@@ -4,7 +4,7 @@ class Solution:
         def dfs(i,temp):
             if i == len(s) and len(temp) == 4:
                 res.append(".".join(temp.copy()))
-            if i == len(s):
+            if i == len(s) or len(temp) >= 4:
                 return
             temp.append(s[i])
             dfs(i+1,temp)
