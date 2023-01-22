@@ -20,5 +20,3 @@ class Solution:
             dp[i] = Min
         return dp[-1]
             
-        
-            
