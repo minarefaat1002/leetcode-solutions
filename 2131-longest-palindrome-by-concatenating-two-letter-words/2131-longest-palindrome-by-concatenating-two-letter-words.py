@@ -5,8 +5,8 @@ class Solution:
         middle = ""
         for item in count:
             if item[0] == item[1] and count[item] > Max and count[item]%2 == 1:
-                middle = item
                 Max = count[item]
+                middle = item
         del count[middle]
         length = 0
         for item in count:
