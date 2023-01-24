@@ -1,26 +1,27 @@
-from collections import deque
-
 class Solution:
     def snakesAndLadders(self, board: List[List[int]]) -> int:
+        def valToPos(square):
+            r = (square-1)//n
+            c = (square-1)%n if r%2 == 0 else n-(square-1)%n - 1
+            return [r,c]
+        q = deque()
+        q.append([1,0]) # square ===> moves
+        visited = set()
+        visited.add(1)
+        board.reverse()
         n = len(board)
-        cells = [None] * (n**2 + 1)
-        label = 1
-        columns = list(range(0, n))
-        for row in range(n - 1, -1, -1):
-            for column in columns:
-                cells[label] = (row, column)
-                label += 1
-            columns.reverse()
-        dist = [-1] * (n * n + 1)
-        q = deque([1])
-        dist[1] = 0
         while q:
-            curr = q.popleft()
-            for next in range(curr + 1, min(curr + 6, n**2) + 1):
-                row, column = cells[next]
-                destination = (board[row][column] if board[row][column] != -1
-                               else next)
-                if dist[destination] == -1:
-                    dist[destination] = dist[curr] + 1
-                    q.append(destination)
-        return dist[n * n]
+            square,moves = q.popleft()
+            for i in range(1,7):
+                nextSquare = square + i
+                r,c = valToPos(nextSquare)
+                if board[r][c] != -1:
+                    nextSquare = board[r][c]
+                if nextSquare not in visited:
+                    q.append([nextSquare,moves+1])
+                    visited.add(nextSquare)
+                if nextSquare == n*n:
+                    return moves + 1
+        return -1
+                
+            
