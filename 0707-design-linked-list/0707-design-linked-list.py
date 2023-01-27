@@ -41,7 +41,7 @@ class MyLinkedList:
         while cur and index > 0:
             index-=1
             cur = cur.next
-        if cur:
+        if cur :
             node = Node(val)
             next = cur
             prev = cur.prev
@@ -55,7 +55,7 @@ class MyLinkedList:
         while cur and index > 0:
             index-=1
             cur = cur.next
-        if cur and cur != self.right and index == 0:
+        if cur and cur != self.right:
             next = cur.next
             prev = cur.prev
             next.prev = prev
