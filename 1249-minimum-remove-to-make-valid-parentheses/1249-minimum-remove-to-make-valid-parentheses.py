@@ -1,30 +1,30 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        newS = ""
+        stack = []
         openB = 0
         for char in s:
             if char == "(":
-                newS += char
+                stack.append(char)
                 openB += 1
             elif char ==")" and openB > 0:
-                newS += char
+                stack.append(char)
                 openB -= 1
             elif char == ")" and openB == 0:
                 continue
             else:
-                newS += char
-        s = newS
-        newS = ""
+                stack.append(char)
+        s = "".join(stack)
+        stack = []
         openB = 0
         for char in s[::-1]:
             if char == ")":
                 openB+=1
-                newS = char + newS
+                stack.append(char)
             elif char =="(" and openB > 0:
-                newS = char + newS
+                stack.append(char)
                 openB -= 1
             elif char =="(" and openB == 0:
                 continue
             else:
-                newS = char + newS
-        return newS
+                stack.append(char)
+        return "".join(stack[::-1])
