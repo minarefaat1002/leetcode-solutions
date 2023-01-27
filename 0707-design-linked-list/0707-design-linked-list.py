@@ -16,7 +16,7 @@ class MyLinkedList:
         while cur and index > 0:
             cur = cur.next
             index -= 1
-        if cur and cur != self.right and index == 0:
+        if cur and cur != self.right:
             return cur.val
         return -1
     def addAtHead(self, val: int) -> None:
@@ -41,7 +41,7 @@ class MyLinkedList:
         while cur and index > 0:
             index-=1
             cur = cur.next
-        if cur :
+        if cur:
             node = Node(val)
             next = cur
             prev = cur.prev
