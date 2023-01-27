@@ -24,15 +24,15 @@ class Solution:
         dummy = ListNode(0,None)
         temp = dummy
         while head1 and head2:
+            if head1 == head2:
+                temp.next = head1
+                temp = temp.next
+                break
             temp.next = head1
             temp = temp.next
             head1 = head1.next
             temp.next = head2
             temp = temp.next
             head2 = head2.next
-        if head1 == head2:
-            temp.next = head1
-            temp = temp.next
-        temp.next = None
         head = dummy.next
         
