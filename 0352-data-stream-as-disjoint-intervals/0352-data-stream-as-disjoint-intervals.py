@@ -5,7 +5,7 @@ class SummaryRanges:
         self.sd = SortedDict()
 
     def addNum(self, value: int) -> None:
-        self.sd[value] = 4
+        self.sd[value] = value
 
     def getIntervals(self) -> List[List[int]]:
         res = []
