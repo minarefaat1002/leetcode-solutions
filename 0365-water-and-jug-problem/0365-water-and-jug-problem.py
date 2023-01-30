@@ -3,6 +3,10 @@ class Solution:
         q = deque()
         q.append([0,0])
         visited = set()
+        if jug1Capacity + jug2Capacity < targetCapacity:
+            return False
+        if targetCapacity in [jug1Capacity,jug2Capacity,jug1Capacity+jug2Capacity]:
+            return True
         while q:
             c1,c2 = q.popleft()
             if (c1,c2) in visited:
