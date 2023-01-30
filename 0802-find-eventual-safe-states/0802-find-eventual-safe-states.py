@@ -1,13 +1,8 @@
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
-        graphh = {}
         safeNode = [False]*len(graph)
         visited = [False]*(len(graph))
         res = []
-        for i in range(len(graph)):
-            if graph[i] == []:
-                safeNode[i] = True
-            graphh[i] = graph[i]
         def dfs(vertex):
             if safeNode[vertex]:
                 return True
@@ -15,7 +10,7 @@ class Solution:
                 return False
             visited[vertex] = True
             isSafe = True
-            for neighbor in graphh[vertex]:
+            for neighbor in graph[vertex]:
                 isSafe = isSafe and dfs(neighbor)
             safeNode[vertex] = isSafe
             return isSafe
