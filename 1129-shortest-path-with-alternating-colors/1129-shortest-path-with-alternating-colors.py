@@ -1,8 +1,7 @@
 class Solution:
     def shortestAlternatingPaths(self, n: int, redEdges: List[List[int]], blueEdges: List[List[int]]) -> List[int]:
-        # -1 => red 1 == blue
-        visitedFromRed = [False]*n
-        visitedFromBlue = [False]*n
+        # 0 => red 1 == blue
+        visited = [[False,False] for _ in range(n)]
         res = [float('inf')]*n
         res[0] = 0
         graphRed = collections.defaultdict(list)
@@ -11,25 +10,20 @@ class Solution:
             graphRed[edge[0]].append(edge[1])
         for edge in blueEdges:
             graphBlue[edge[0]].append(edge[1])
+        graph = [graphRed,graphBlue]
         q = deque()
-        q.append([0,-1,0]) # vertex , color , length
+        q.append([0,0,0]) # vertex , color , length
         q.append([0,1,0])
-        visitedFromRed[0] = True
-        visitedFromBlue[0] = True
+        visited[0][0] = True
+        visited[0][1] = True
         while q:
             vertex,color,length = q.popleft()
             res[vertex] = min(res[vertex],length)
-            if color == -1:
-                for neighbor in graphBlue[vertex]:
-                    if not visitedFromBlue[neighbor]:
-                        visitedFromBlue[neighbor] = True
-                        q.append([neighbor,1,length+1])
-            else:
-                for neighbor in graphRed[vertex]:
-                    if not visitedFromRed[neighbor]:
-                        visitedFromRed[neighbor] = True
-                        q.append([neighbor,-1,length+1])
+            for neighbor in graph[1-color][vertex]:
+                if not visited[neighbor][1-color]:
+                    visited[neighbor][1-color] = True
+                    q.append([neighbor,1-color,length+1])
         for i in range(n):
-            if not visitedFromRed[i] and not visitedFromBlue[i]:
+            if not visited[i][0] and not visited[i][1]:
                 res[i] = -1
         return res
