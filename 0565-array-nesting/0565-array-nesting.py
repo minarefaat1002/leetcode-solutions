@@ -1,13 +1,14 @@
 class Solution:
     def arrayNesting(self, nums: List[int]) -> int:
-        visited = [False]*len(nums)
         def dfs(vertex):
-            if visited[vertex]:
+            if nums[vertex] < 0:
                 return 0
-            visited[vertex] = True
-            return 1 + dfs(nums[vertex])
+            temp = nums[vertex]
+            nums[vertex] = -1
+            return 1 + dfs(temp)
+            
         result = 0
-        for i in range(len(visited)):
-            if not visited[i]:
+        for i in range(len(nums)):
+            if nums[i] >= 0:
                 result = max(dfs(i),result)
         return result
