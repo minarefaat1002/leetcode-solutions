@@ -12,7 +12,7 @@ class Solution:
             pos,length,backward = q.popleft()
             if pos == x:
                 return length
-            if pos+a >= 0 and ((pos+a,0) not in visited) and pos+a < 10000:
+            if pos+a >= 0 and ((pos+a,0) not in visited) and pos+a < 6000:
                 visited.add((pos+a,0))
                 q.append([pos+a,length+1,False])
             if pos-b>=0 and (not backward) and ((pos-b,1) not in visited):
