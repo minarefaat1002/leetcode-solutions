@@ -1,24 +1,21 @@
 class Solution:
     def minimumJumps(self, forbidden: List[int], a: int, b: int, x: int) -> int:
-        limit = 2000 + a + b
-        visited = set(forbidden)
-        myque = collections.deque([(0, True)]) # (pos, isForward) 
-        hops = 0
-        while(myque):
-            l = len(myque)
-            while(l > 0):
-                l -= 1
-                pos, isForward = myque.popleft()
-                if pos == x:
-                    return hops
-                if pos in visited: continue
-                visited.add(pos)
-                if isForward:
-                    nxt_jump = pos - b
-                    if nxt_jump >= 0:
-                        myque.append((nxt_jump, False))
-                nxt_jump = pos + a
-                if nxt_jump <= limit:
-                    myque.append((nxt_jump, True))
-            hops += 1
+        visited = set()
+        q = deque()
+        q.append([0,0,False]) # pos , length,backward
+        visited.add((0,0))
+        visited.add((0,1))
+        for f in forbidden:
+            visited.add((f,0)) # 0 forward
+            visited.add((f,1)) # 1 backward
+        while q:
+            pos,length,backward = q.popleft()
+            if pos == x:
+                return length
+            if pos+a >= 0 and ((pos+a,0) not in visited) and pos+a < 10000:
+                visited.add((pos+a,0))
+                q.append([pos+a,length+1,False])
+            if pos-b>=0 and (not backward) and ((pos-b,1) not in visited):
+                visited.add((pos-b,1))
+                q.append([pos-b,length+1,True])
         return -1
