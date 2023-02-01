@@ -21,9 +21,7 @@ class Solution:
             if (root,head) in dp:
                 return dp[(root,head)]
             if head.val == root.val:
-                dp[(root,head)] = dfs(head.next,root.left) or dfs(head.next,root.right) or dfs(head1,root.left) or dfs(head1,root.right)
-                return dp[(root,head)]
-            else:
-                dp[(root,head)] = dfs(head1,root.left) or dfs(head1,root.right)
-                return dp[(root,head)]
+                dp[(root,head)] = dfs(head.next,root.left) or dfs(head.next,root.right)
+            dp[(root,head)] = dp.get((root,head),False) or dfs(head1,root.left) or dfs(head1,root.right)
+            return dp[(root,head)]
         return dfs(head,root)
