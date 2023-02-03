@@ -5,7 +5,10 @@ class Solution:
             flag = True
             newJ = j
             for i in range(len(grid)):
-                if (newJ == 0 and grid[i][newJ]== -1) or (newJ==len(grid[0])-1 and grid[i][newJ]==1) or (newJ<len(grid[0])-1 and grid[i][newJ] == 1 and grid[i][newJ+1] == -1) or (newJ > 0 and grid[i][newJ]==-1 and grid[i][newJ-1]==1 ):
+                if (newJ == 0 and grid[i][newJ]== -1) or \
+                (newJ==len(grid[0])-1 and grid[i][newJ]==1) or \
+                (newJ<len(grid[0])-1 and grid[i][newJ] == 1 and grid[i][newJ+1] == -1) or \
+                (newJ > 0 and grid[i][newJ]==-1 and grid[i][newJ-1]==1 ):
                     res[j] = -1
                     flag = False
                     break
