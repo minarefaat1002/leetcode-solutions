@@ -8,5 +8,5 @@ class Solution:
         roads = set(tuple(road) for road in roads)
         for i in range(n):
             for j in range(i+1,n):
-                maxRank = max(count.get(i,0) + count.get(j,0) - ( 1 if (i,j) in roads or (j,i) in roads else 0) ,maxRank) 
+                maxRank = max(count.get(i,0) + count.get(j,0) - ( 1 if (i,j) in roads or (j,i) in roads  else 0) ,maxRank) 
         return maxRank
