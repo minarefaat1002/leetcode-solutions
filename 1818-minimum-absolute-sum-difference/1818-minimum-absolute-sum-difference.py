@@ -3,7 +3,7 @@ class Solution:
         sumDifference = 0
         mod = 10**9 + 7
         for i in range(len(nums1)):
-            sumDifference = (sumDifference + abs(nums1[i] - nums2[i]))%mod
+            sumDifference += abs(nums1[i] - nums2[i])
         sortedNums1 = sorted(nums1)
         maxSaved = 0
         for i in range(len(nums1)):
@@ -18,4 +18,4 @@ class Solution:
                 else:
                     left = mid + 1
             maxSaved = max(maxSaved,curAbsSum - minAbsSum)
-        return sumDifference - maxSaved if sumDifference - maxSaved >= 0 else sumDifference - maxSaved + mod 
+        return (sumDifference - maxSaved)%mod
