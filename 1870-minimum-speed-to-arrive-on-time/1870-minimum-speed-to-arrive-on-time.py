@@ -1,7 +1,7 @@
 class Solution:
     def minSpeedOnTime(self, dist: List[int], hour: float) -> int:
         left = 1
-        right = 10**7
+        right = max(dist)*100
         res = -1
         while left <= right:
             time = 0
