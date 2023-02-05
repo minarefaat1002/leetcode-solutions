@@ -5,11 +5,12 @@ class Solution:
         count = Counter(nums)
         nums.sort()
         for num in nums:
-            if num in count:
-                for i in range(num,num+k):
-                    if i not in count:
-                        return  False
-                    count[i]-=1
-                    if count[i] == 0:
-                        del count[i]
+            if num not in count:
+                continue
+            for i in range(num,num+k):
+                if i not in count:
+                    return  False
+                count[i]-=1
+                if count[i] == 0:
+                    del count[i]
         return True
