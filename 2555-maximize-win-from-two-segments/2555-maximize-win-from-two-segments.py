@@ -29,9 +29,4 @@ class Solution:
                 res = max(Max+dp[i+1],res)
             else:
                 res = max(res,Max,dp[-1])
-        return res
-            
-            
-            
-                
-                
+        return max(res,dp[0])
