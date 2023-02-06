@@ -1,10 +1,7 @@
 class Solution:
-    def findRightInterval(self, intervals: List[List[int]]) -> List[int]:
-        hashMap = {}
-        for i,interval in enumerate(intervals):
-            hashMap[(interval[0],interval[1])] = i            
+    def findRightInterval(self, intervals: List[List[int]]) -> List[int]:           
         res = []
-        sortedIntervals = sorted(intervals)
+        sortedIntervals = sorted([interval[0],interval[1],i] for i,interval in enumerate(intervals))
         for i,interval in enumerate(intervals):
             endI = interval[1]
             left = 0
@@ -13,7 +10,7 @@ class Solution:
             while left <=right:
                 mid = (left + right)//2
                 if sortedIntervals[mid][0] >= endI:
-                    ans = hashMap[(sortedIntervals[mid][0],sortedIntervals[mid][1])]
+                    ans = sortedIntervals[mid][2]
                     right = mid - 1
                 else:
                     left = mid + 1
