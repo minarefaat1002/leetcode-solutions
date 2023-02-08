@@ -1,36 +1,39 @@
 class Solution:
     def canPartitionKSubsets(self, nums: List[int], k: int) -> bool:
-        used = [False]*len(nums)
-        total_sum = sum(nums)
-        if total_sum % k != 0:
+        if len(nums) < k or sum(nums)%k !=0 or max(nums) > sum(nums)/k:
             return False
-        target = total_sum // k
-        nums.sort(reverse = True)
-        
-        #sorting the array in descending order
-        #so if first value is greater than target, it will not be included in any subset
-        #so we cant partition the entire array into k equal sum subsets
-        if nums[0] > target:
-            return False
-        
+        newK = k
+        newNums = []
+        Sum = sum(nums)
+        for num in nums:
+            if num==Sum//k:
+                newK-=1
+            else:
+                newNums.append(num)
+        if newK == 0:
+            return True
+        newNums.sort(reverse = True )
         dp = {}
-        def backtrack(i,k,rem):
-            #since subproblem depends on used indices of array
-            #if same subproblem occurs again just return dp value
-            if tuple(used) in dp:
-                return dp[tuple(used)]
-            if k == 0:
+        self.target = sum(newNums)//newK
+        used = [False]*16
+        newNums.sort(reverse=True)
+        def dfs(i,subsetSum,k):
+            if (tuple(used),k) in dp:
+                return dp[(tuple(used),k)]
+            if k == 1 and subsetSum == self.target:
                 return True
-            if rem == 0:
-                partition = backtrack(0,k-1,target)
-                dp[tuple(used)] = partition
-                return partition
-            for j in range(i,len(nums)):
-                if not used[j] and rem-nums[j] >= 0:
-                    used[j] = True
-                    if backtrack(j+1,k,rem-nums[j]):
-                        return True
-                    used[j] = False
-            dp[tuple(used)] = False
-            return False
-        return backtrack(0,k,target)
+            if i==len(newNums) or subsetSum > self.target:
+                return False
+            if subsetSum == self.target:
+                dp[(tuple(used),k)] = dfs(0,0,k-1)
+                return dp[(tuple(used),k)]
+            if not used[i]:
+                used[i] = True
+                dp[(tuple(used),k)] = dfs(i+1,subsetSum+newNums[i],k)
+                if dp[(tuple(used),k)]:
+                    return True
+                used[i] = False
+            dp[(tuple(used),k)] = dfs(i+1,subsetSum,k)
+            if dp[(tuple(used),k)]:
+                return True
+        return dfs(0,0,newK)
