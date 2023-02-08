@@ -12,6 +12,7 @@ class Solution:
                 newNums.append(num)
         if newK == 0:
             return True
+        newNums.sort(reverse = True )
         self.target = sum(newNums)//newK
         used = [False]*16
         newNums.sort(reverse=True)
