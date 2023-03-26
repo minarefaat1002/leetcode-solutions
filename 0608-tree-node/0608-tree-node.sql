@@ -42,8 +42,5 @@ SELECT IFNULL(P_id,0) FROM Tree
 
 
 
-
-
-
 # The problem is caused by NOT IN . NOT IN returns 0 records when compared against an unknown value.
 # Since NULL is an unknown, a NOT IN query containing a NULL or NULLs in the list of possible values will always return 0 records since there is no way to be sure that the NULL value is not the value being tested.
