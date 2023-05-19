@@ -10,7 +10,6 @@ class Solution:
                 endingWithZerosOrOnes[i] += endingWithZerosOrOnes[i-zero]
             if i-one >= 0:
                 endingWithZerosOrOnes[i] += endingWithZerosOrOnes[i-one]
-
-        for i in range(low,high+1):
-            result += endingWithZerosOrOnes[i] % MOD
+            if i >=low:
+                result += endingWithZerosOrOnes[i]%MOD
         return result%MOD
