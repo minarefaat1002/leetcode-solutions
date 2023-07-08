@@ -1,12 +1,11 @@
 class Solution {
     public int minSubArrayLen(int target, int[] nums) {
-        int l = 1;
-        int r = nums.length;
-        int result = Integer.MAX_VALUE;
+        int l = 1, r = nums.length, result = Integer.MAX_VALUE, mid, windowSum;
+        boolean found;
         while( l <= r ){
-            int mid = (l+r)/2;
-            int windowSum = 0;
-            boolean found = false;
+            mid = (l+r)/2;
+            windowSum = 0;
+            found = false;
             for( int i = 0; i < mid; i++){
                 windowSum += nums[i];
             }
