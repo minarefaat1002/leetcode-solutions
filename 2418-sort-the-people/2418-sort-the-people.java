@@ -5,6 +5,7 @@ class Solution {
             map.put(heights[i], names[i]);
         }
         Arrays.sort(heights); // sorted in ascending order
+        // Arrays.sort(arr, Collections.reverseOrder()); ===> for sorting in reverse order
         String[] res = new String[names.length];
         for (int i = 0; i < names.length; i++) {
             res[res.length - 1 - i] = map.get(heights[i]);
