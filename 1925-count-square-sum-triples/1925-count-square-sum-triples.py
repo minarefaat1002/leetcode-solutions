@@ -3,7 +3,7 @@ class Solution:
         counter = 0
         for i in range(1,n+1,1):
             for j in range(1,n+1,1):
-                    if sqrt(i*i + j*j) == int(sqrt(i*i + j*j)) and  sqrt(i*i + j*j) <=n:
+                    if sqrt(i*i + j*j).is_integer() and  sqrt(i*i + j*j) <=n:
                         counter +=1
         return counter 
         '''
