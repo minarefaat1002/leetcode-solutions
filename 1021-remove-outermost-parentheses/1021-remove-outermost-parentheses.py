@@ -1,17 +1,16 @@
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:
         newS = ""
-        stack = []
         leftParenthesis = 0
         for char in s:
-            if char == "(":
-                stack.append(char)
+            if char == "(" and leftParenthesis == 0:
+                leftParenthesis += 1
+            elif char == "(" and leftParenthesis >= 1:
+                newS += char
                 leftParenthesis+=1
             elif char == ")" and leftParenthesis == 1:
                 leftParenthesis = 0
-                newS += "".join(stack[1:])
-                stack = []
             else:
-                stack.append(char)
+                newS += char
                 leftParenthesis -= 1
         return newS
