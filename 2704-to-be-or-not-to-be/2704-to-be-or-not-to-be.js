@@ -6,18 +6,12 @@ var expect = function(val) {
     const o = Object();
     o.val = val;
     o.toBe = function(val){
-        if(this.val === val){
-            return true;
-        } else {
-            throw new Error("Not Equal");
-        }
+        if(this.val === val) return true;
+        throw new Error("Not Equal");
     }
     o.notToBe = function(val){
-        if(this.val !== val){
-            return true;
-        } else {
-            throw new Error("Equal");
-        }
+        if(this.val !== val) return true;
+        throw new Error("Equal");
     }
     return o;
 };
