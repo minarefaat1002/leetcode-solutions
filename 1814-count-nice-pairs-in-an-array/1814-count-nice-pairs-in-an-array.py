@@ -12,5 +12,5 @@ class Solution:
             nums[i] = nums[i] - reverseNumber(nums[i])
         c = Counter(nums)
         for key,value in c.items():
-            total = (total+ (value*(value-1)//2)%MOD)%MOD
+            total = (total+ value*(value-1)//2)%MOD
         return total
