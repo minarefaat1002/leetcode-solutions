@@ -11,5 +11,5 @@ class Solution:
             nums[i] = nums[i] - reverseNumber(nums[i])
         c = Counter(nums)
         for key,value in c.items():
-            total += value*(value-1)//2
-        return total%(10**9+7)
+            total = (total+ value*(value-1)//2)%(10**9+7)
+        return total
