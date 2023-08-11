@@ -1,6 +1,7 @@
 class Solution:
     def countNicePairs(self, nums: List[int]) -> int:
         total = 0
+        MOD = 10**9 + 7
         def reverseNumber(number):
             reversedNumber = 0
             while number:
@@ -11,5 +12,5 @@ class Solution:
             nums[i] = nums[i] - reverseNumber(nums[i])
         c = Counter(nums)
         for key,value in c.items():
-            total = (total+ value*(value-1)//2)%(10**9+7)
+            total = (total+ value*(value-1)//2)%MOD
         return total
