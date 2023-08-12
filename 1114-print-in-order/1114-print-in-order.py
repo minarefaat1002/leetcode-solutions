@@ -6,9 +6,8 @@ class Foo:
     def first(self, printFirst: 'Callable[[], None]') -> None:
         
         # printFirst() outputs "first". Do not change or remove this line.
-        if self.count == 0:
-            printFirst()
-            self.count += 1
+        printFirst()
+        self.count += 1
 
 
     def second(self, printSecond: 'Callable[[], None]') -> None:
